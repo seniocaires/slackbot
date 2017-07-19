@@ -24,6 +24,7 @@ public class Main {
 			for (String canal : Util.CANAIS) {
 				SlackChannel channel = sessao.findChannelByName(canal);
 				sessao.sendMessage(channel, Util.MENSAGEM);
+				sessao.disconnect();
 			}
 		} catch (IOException ioException) {
 			Util.APPLOG.log(Level.SEVERE, ioException.getMessage(), ioException);
