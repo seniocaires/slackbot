@@ -1,0 +1,2 @@
+#!/bin/sh
+/usr/lib/jvm/java-8-openjdk-amd64/bin/java -DMENSAGEM=$MENSAGEM -DTOKEN=$TOKEN -DCANAIS=$CANAIS -jar /app/run.jar

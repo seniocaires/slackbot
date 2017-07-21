@@ -12,4 +12,10 @@ WORKDIR /app
 
 COPY --from=builder /build/target/slackbot-jar-with-dependencies.jar /app/run.jar
 
-CMD ["/usr/lib/jvm/java-8-openjdk-amd64/bin/java", "-DMENSAGEM=$MENSAGEM", "-DTOKEN=$TOKEN", "-DCANAIS=$CANAIS", "-jar", "run.jar"]
+ADD entrypoint /usr/local/container/entrypoint
+
+RUN chmod +x /usr/local/container/entrypoint
+
+ENV PATH /usr/local/container:$PATH
+
+ENTRYPOINT ["entrypoint"]
